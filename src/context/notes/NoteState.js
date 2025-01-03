@@ -6,10 +6,8 @@ const NoteState = (props) => {
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial);
 
-    // Fetch auth-token dynamically (e.g., from localStorage)
     const getAuthToken = () => {
-        return localStorage.getItem("auth-token") || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjc0MmYzNTZjYTIzMzMzMWM1NzI3OTFmIn0sImlhdCI6MTczMjQ0MjEzOX0.R8lQmEtzj69tRY2OMCcoLPg2J4dIt03pQm9Eu-CyfMo";
-    };
+        return localStorage.getItem("token")};
 
     // GET all notes
     const getNotes = async () => {
@@ -59,7 +57,6 @@ const NoteState = (props) => {
                 },
             });
             if (!response.ok) throw new Error("Failed to delete note");
-            console.log(`Deleted note with id: ${id}`);
             setNotes(notes.filter((note) => note._id !== id));
         } catch (error) {
             console.error("Error deleting note:", error.message);
@@ -78,7 +75,6 @@ const NoteState = (props) => {
                 body: JSON.stringify({ title, desc, tag }),
             });
             if (!response.ok) throw new Error("Failed to edit note");
-            const updatedNote = await response.json();
 
             // Update the note locally
             const newNotes = notes.map((note) =>
