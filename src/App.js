@@ -1,6 +1,5 @@
 import './App.css';
 import Home from './components/Home';
-import About from './components/About';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NoteState from './context/notes/NoteState';
