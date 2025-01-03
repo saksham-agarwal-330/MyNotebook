@@ -5,12 +5,12 @@ const AddNote = () => {
     const context = useContext(NoteContext);
     const { addNote } = context;
 
-    const [note, setNote] = useState({ title: "", description: "", tag: "" });
+    const [note, setNote] = useState({ title: "", desc: "", tag: "" });
 
     const handleClick = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.tag);  // Pass individual values
-        setNote({ title: "", description: "", tag: "" });  // Clear the form after submission
+        addNote(note.title, note.desc, note.tag);  // Pass individual values
+        setNote({ title: "", desc: "", tag: "" });  // Clear the form after submission
     };
 
     const onChange = (e) => {
@@ -36,13 +36,13 @@ const AddNote = () => {
                     <input
                         type="text"
                         className="form-control"
-                        id="description"
-                        name="description"
+                        id="desc"
+                        name="desc"
                         placeholder="Description"
-                        value={note.description}
+                        value={note.desc}
                         onChange={onChange}
                     />
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="desc">Description</label>
                 </div>
                 <div className="form-floating mb-3">
                     <input
