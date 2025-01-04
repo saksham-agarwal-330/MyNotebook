@@ -37,16 +37,6 @@ const Navbar = () => {
                                 Home
                             </NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink
-                                className={({ isActive }) =>
-                                    `nav-link ${isActive ? 'active' : ''}`
-                                }
-                                to="/about"
-                            >
-                                About
-                            </NavLink>
-                        </li>
                     </ul>
                     {localStorage.getItem("token") ? (
                         <form className="d-flex justify-center" role="search">
